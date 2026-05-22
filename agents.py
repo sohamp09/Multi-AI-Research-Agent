@@ -9,7 +9,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #model serup
-llm = ChatMistralAI(model="mistral-small-2506",api_key=os.getenv("MISTRAL_API_KEY"), temperature=0)
+llm = ChatMistralAI(
+    model="mistral-small-latest",
+    api_key=os.getenv("MISTRAL_API_KEY"),
+    temperature=0.7,
+)
 
 #1st agent setup
 def build_search_agent():
@@ -74,3 +78,5 @@ One line verdict:
 ])
 
 critic_chain = critic_prompt | llm | StrOutputParser()
+
+
